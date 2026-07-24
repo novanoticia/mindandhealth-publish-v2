@@ -1,0 +1,10 @@
+{
+  "name": "mindandhealth-publish-v2",
+  "version": "2.0.0",
+  "description": "Acompañamiento editorial conversacional para mindandhealth.org: canvas iterativo en el chat, derivados LinkedIn y prompt de imagen 1570:880. Nunca escribe en el vault.",
+  "author": {
+    "name": "Pablo Rodríguez López"
+  },
+  "license": "Apache-2.0",
+  "keywords": ["editorial", "obsidian-publish", "spanish", "writing", "linkedin"]
+}
