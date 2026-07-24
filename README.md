@@ -4,6 +4,8 @@
 
 Skill de **acompañamiento editorial conversacional** para [Claude](https://claude.com) al servicio de las publicaciones de [mindandhealth.org](https://mindandhealth.org) (Obsidian Publish). Su premisa de diseño: **los artículos no se piden, emergen**. El skill no redacta a demanda; conversa, y solo cuando la conversación cristaliza abre un borrador iterable.
 
+Este repositorio es, además, un **marketplace de plugins de Claude**: contiene el manifiesto `.claude-plugin/marketplace.json` que permite instalarlo directamente desde los ajustes de Claude y mantenerlo sincronizado con cada cambio publicado aquí.
+
 ## Cómo funciona
 
 1. **Conversación exploratoria** (modo por defecto). Tema, intuición, duda o lectura. El skill actúa como interlocutor transdisciplinar: contraargumenta, matiza, propone metáforas y referencias.
@@ -22,41 +24,45 @@ Skill de **acompañamiento editorial conversacional** para [Claude](https://clau
 
 ## Instalación
 
-**En claude.ai (web):** descarga el repo (botón verde **Code → Download ZIP**), y en claude.ai ve a **Ajustes → Capacidades → Skills → Subir skill** y selecciona el ZIP. Se activa con `/mindandhealth-publish-v2` o con lenguaje natural.
+**Como plugin, desde este marketplace (recomendado).** En la app de Claude: **Ajustes → Plugins → Añadir** (añadir marketplace) → escribe `novanoticia/mindandhealth-publish-v2` → **Sincronizar**, e instala el plugin `mindandhealth-publish-v2` desde la lista. Con **"Sincronizar automáticamente"** activado, cada cambio publicado en este repositorio se propaga solo a tu Claude.
 
-**En Claude Code / Claude Desktop:** copia la carpeta del skill al directorio de skills de tu entorno (personal o de proyecto). En esos entornos se habilita además el acceso de **solo lectura** al vault para proponer enlaces internos verificados, y la orquestación opcional de subagentes.
+**Desde la línea de comandos de Claude Code:**
+
+```
+/plugin marketplace add novanoticia/mindandhealth-publish-v2
+/plugin install mindandhealth-publish-v2@mindandhealth-publish-v2
+```
+
+**Como skill suelto en claude.ai (alternativa sin plugins).** Descarga el repo (**Code → Download ZIP**), comprime únicamente la carpeta `plugins/mindandhealth-publish-v2/skills/mindandhealth-publish-v2/` y súbela en **Ajustes → Capacidades → Skills → Subir skill**. Pierdes la sincronización automática; el resto funciona igual.
 
 ## Uso
 
 ```
-/mindandhealth-publish-v2 [contexto opcional]
+/mindandhealth-publish-v2:mindandhealth-publish-v2 [contexto opcional]
 ```
 
-O en lenguaje natural: «pensemos sobre X», «me ronda esta idea», «saca canvas con lo que llevamos», «haz la newsletter del último artículo», «dame el prompt de imagen para este post».
+O en lenguaje natural, que funciona igual con cualquier método de instalación: «pensemos sobre X», «me ronda esta idea», «saca canvas con lo que llevamos», «haz la newsletter del último artículo», «dame el prompt de imagen para este post».
 
 ## Estructura
 
 ```
-mindandhealth-publish-v2/
-├── SKILL.md                          # Orquestador: modelo mental, gates, flujo
-├── CHANGELOG.md                      # Trazabilidad completa de la v2
-├── modes/
-│   ├── conversar.md                  # Modo por defecto: exploración y cristalización
-│   ├── generate.md                   # Primer volcado del canvas
-│   ├── refine.md                     # Pulido de borrador aportado
-│   ├── transform.md                  # Canvas desde material fuente (papers, URLs, notas)
-│   └── pipeline.md                   # Recorrido completo hasta derivados
-├── references/
-│   ├── modo-iterativo-canvas.md      # Fuente canónica del protocolo de canvas
-│   ├── voz-editorial.md              # Tono, ritmo y patrones del sitio
-│   ├── estructura-yaml.md            # Frontmatter mínimo Obsidian
-│   ├── pie-etico.md                  # Invariantes éticos + variación controlada
-│   ├── mapa-tematico.md              # Taxonomía del sitio (snapshot con nota de vigencia)
-│   └── orquestacion-modelos.md       # Delegación opcional a subagente frontera
-└── derivatives/
-    ├── linkedin-newsletter.md        # Artículo → newsletter
-    ├── linkedin-feed.md              # Newsletter → post de feed
-    └── banner-spec.md                # Prompt de imagen · fuente canónica del ratio 1570:880
+mindandhealth-publish-v2/                 ← repositorio = marketplace de plugins
+├── .claude-plugin/
+│   └── marketplace.json                  ← manifiesto del marketplace (lo que Claude lee al añadirlo)
+├── plugins/
+│   └── mindandhealth-publish-v2/         ← el plugin
+│       ├── .claude-plugin/
+│       │   └── plugin.json               ← manifiesto del plugin
+│       └── skills/
+│           └── mindandhealth-publish-v2/ ← el skill
+│               ├── SKILL.md              ← orquestador: modelo mental, gates, flujo
+│               ├── CHANGELOG.md          ← trazabilidad completa de la v2
+│               ├── modes/                ← conversar · generate · refine · transform · pipeline
+│               ├── references/           ← protocolo de canvas (fuente canónica), voz editorial,
+│               │                            YAML, pie ético, mapa temático, orquestación de modelos
+│               └── derivatives/          ← newsletter LinkedIn · post de feed · banner 1570:880
+├── README.md
+└── LICENSE
 ```
 
 ## Entornos y portabilidad
@@ -72,8 +78,9 @@ Versión auditada (protocolo de auditoría estructurada con calibración de conf
 - Pie ético con **variación controlada**: cuatro invariantes fijos, redacción fresca en cada artículo.
 - Nota de vigencia en el mapa temático (anti-alucinación de enlaces internos).
 - Nueva referencia de orquestación de modelos.
+- Distribución como **marketplace de plugins** con sincronización automática desde GitHub.
 
-Detalle completo, con identificadores de hallazgo y fix, en [CHANGELOG.md](CHANGELOG.md).
+Detalle completo, con identificadores de hallazgo y fix, en [CHANGELOG.md](plugins/mindandhealth-publish-v2/skills/mindandhealth-publish-v2/CHANGELOG.md).
 
 ## Contexto del proyecto
 
@@ -81,7 +88,7 @@ Este skill sirve al proyecto editorial de **Pablo Rodríguez López** en [mindan
 
 ## Licencia
 
-[Apache-2.0](LICENSE). El skill es de propósito personal pero su estructura (gate de entorno, variación controlada del pie ético, orquestación opcional) es reutilizable como patrón para otros skills editoriales.
+[Apache-2.0](LICENSE). El skill es de propósito personal pero su estructura (gate de entorno, variación controlada del pie ético, orquestación opcional, distribución como marketplace) es reutilizable como patrón para otros skills editoriales.
 
 ---
 
