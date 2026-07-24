@@ -1,0 +1,18 @@
+{
+  "name": "mindandhealth-publish-v2",
+  "version": "2.0.0",
+  "description": "Marketplace personal de novanoticia: skill de acompañamiento editorial conversacional para mindandhealth.org (canvas iterativo en chat, derivados LinkedIn, prompt de imagen 1570:880).",
+  "owner": {
+    "name": "Pablo Rodríguez López (novanoticia)"
+  },
+  "plugins": [
+    {
+      "name": "mindandhealth-publish-v2",
+      "source": "./plugins/mindandhealth-publish-v2",
+      "description": "Acompañamiento editorial conversacional para mindandhealth.org: conversación que cristaliza en canvas markdown iterativo (nunca escribe en el vault) y derivados bajo petición. v2 auditada.",
+      "version": "2.0.0",
+      "category": "productivity",
+      "keywords": ["editorial", "obsidian-publish", "spanish", "writing"]
+    }
+  ]
+}
