@@ -4,23 +4,24 @@ Esta carpeta existe para **clientes que no soportan marketplaces de plugins de C
 
 ## Qué descargar
 
-| Archivo | Para quién | Diferencia |
-|---|---|---|
-| **`mindandhealth-publish-v2.zip`** | Perplexity, y cualquier cliente estándar de la Agent Skills Spec | `description` completa (665 car.) |
-| **`mindandhealth-publish-v2.skill`** | claude.ai (Ajustes → Capacidades → Skills → Subir skill) | Idéntico al `.zip` anterior; solo cambia la extensión |
-| **`mindandhealth-publish-v2-mistral.zip`** | Mistral / Vibe Work | `description` recortada a ≤450 caracteres (439 car. / 443 bytes UTF-8) |
+Un único paquete sirve para todos los clientes:
 
-Los tres contienen la carpeta `mindandhealth-publish-v2/` con `SKILL.md` en su raíz — el nombre de la carpeta coincide con el campo `name:` del frontmatter, como exige la especificación.
+| Archivo | Para quién |
+|---|---|
+| **`mindandhealth-publish-v2.zip`** | Perplexity, Mistral, y cualquier cliente estándar de la Agent Skills Spec |
+| **`mindandhealth-publish-v2.skill`** | claude.ai (Ajustes → Capacidades → Skills → Subir skill) — idéntico al `.zip`, solo cambia la extensión |
 
-## Por qué existe la variante Mistral
-
-La spec abierta permite `description` de hasta 1024 caracteres, y así la usan Claude y Perplexity. Mistral, en la práctica, trabaja mejor con descripciones más cortas (~450 caracteres); por eso hay una segunda copia con la misma `description` comprimida a lo esencial — qué hace y cuándo activarse — sin las frases-ejemplo redundantes de la versión larga. El resto del skill (instrucciones, `modes/`, `references/`, `derivatives/`) es **idéntico byte a byte** en las tres variantes.
+Contienen la carpeta `mindandhealth-publish-v2/` con `SKILL.md` en su raíz — el nombre de la carpeta coincide con el campo `name:` del frontmatter, como exige la especificación.
 
 ## Cómo instalar
 
 **Perplexity (Space o Computer):** en el Space, *Add Sources* → sube **todos** los archivos de `mindandhealth-publish-v2.zip` descomprimido (no solo `SKILL.md`), o en Computer: *Skills → + Create skill* y sube el `.zip`.
 
-**Mistral / Vibe Work:** copia la carpeta descomprimida de `mindandhealth-publish-v2-mistral.zip` a `~/.vibe/skills/` (nivel usuario) o `./.vibe/skills/` (nivel proyecto), o usa el flujo *New Skill* de la interfaz.
+**Mistral / Vibe Work:** el `.zip` es 100% válido tal cual — Mistral solo pide, en el propio formulario de instalación, acortar el campo `description` a menos de 500 caracteres (la spec abierta permite hasta 1024, y así viene por defecto para el resto de clientes). **No existe una copia distinta del zip para esto**: al instalar, pega en el formulario esta versión ya recortada de la description en lugar de la que trae el archivo:
+
+> Acompañamiento editorial conversacional para publicaciones de Pablo en mindandhealth.org. La conversación cristaliza en un canvas markdown iterativo en el chat (nunca escribe en el vault de Obsidian) y derivados bajo petición: newsletter LinkedIn, post de feed, prompt de imagen 1570:880. Actívalo con /mindandhealth-publish-v2 o frases como "pensemos sobre X", "saca canvas", o al pedir crear, refinar o transformar contenido para su web.
+
+(439 caracteres.) El resto del skill —`SKILL.md`, `modes/`, `references/`, `derivatives/`— se sube sin tocar.
 
 **claude.ai (sin plugins):** sube `mindandhealth-publish-v2.skill` en Ajustes → Capacidades → Skills.
 
@@ -28,7 +29,7 @@ La spec abierta permite `description` de hasta 1024 caracteres, y así la usan C
 
 ## Mantenimiento
 
-Estos zips son una **instantánea manual** del skill en `plugins/mindandhealth-publish-v2/skills/mindandhealth-publish-v2/`, generada en cada release relevante. Si el skill cambia y esta carpeta no se regenera, quedará desactualizada — no hay sincronización automática fuera del marketplace de plugins.
+Este zip es una **instantánea manual** del skill en `plugins/mindandhealth-publish-v2/skills/mindandhealth-publish-v2/`, generada en cada release relevante. Si el skill cambia y esta carpeta no se regenera, quedará desactualizada — no hay sincronización automática fuera del marketplace de plugins.
 
 ---
 
