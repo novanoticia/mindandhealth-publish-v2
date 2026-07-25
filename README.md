@@ -33,7 +33,13 @@ Este repositorio es, además, un **marketplace de plugins de Claude**: contiene 
 /plugin install mindandhealth-publish-v2@mindandhealth-publish-v2
 ```
 
-**Como skill suelto en claude.ai (alternativa sin plugins).** Descarga el repo (**Code → Download ZIP**), comprime únicamente la carpeta `plugins/mindandhealth-publish-v2/skills/mindandhealth-publish-v2/` y súbela en **Ajustes → Capacidades → Skills → Subir skill**. Pierdes la sincronización automática; el resto funciona igual.
+**Como skill suelto en claude.ai, Mistral o Perplexity (alternativa sin plugins).** Estos clientes no leen marketplaces, pero sí la [Agent Skills Specification](https://agentskills.io/specification) abierta que ya usa este skill. Descarga el zip listo desde **[`/dist/mindandhealth-publish-v2.zip`](dist/mindandhealth-publish-v2.zip)** (o `.skill` para claude.ai) — mismo contenido, sin tener que recortar nada del repo a mano.
+
+- **claude.ai:** Ajustes → Capacidades → Skills → Subir skill → `mindandhealth-publish-v2.skill`.
+- **Perplexity:** en un Space, *Add Sources* → sube todos los archivos del zip descomprimido; o en Computer, *Skills → + Create skill*.
+- **Mistral / Vibe Work:** el zip se instala tal cual; solo hay que acortar la `description` a menos de 500 caracteres en el propio formulario de instalación (la spec permite hasta 1024; el resto de clientes usa la versión larga). El texto ya recortado está en [`/dist/README.md`](dist/README.md), listo para copiar y pegar.
+
+Con cualquiera de estas vías pierdes la sincronización automática del marketplace; el resto del skill funciona igual.
 
 ## Uso
 
@@ -61,6 +67,10 @@ mindandhealth-publish-v2/                 ← repositorio = marketplace de plugi
 │               ├── references/           ← protocolo de canvas (fuente canónica), voz editorial,
 │               │                            YAML, pie ético, mapa temático, orquestación de modelos
 │               └── derivatives/          ← newsletter LinkedIn · post de feed · banner 1570:880
+├── dist/                                  ← skill suelto para clientes sin plugins
+│   ├── README.md                         ← instrucciones por cliente (Mistral/Perplexity/claude.ai)
+│   ├── mindandhealth-publish-v2.zip      ← Perplexity y estándar de la spec
+│   └── mindandhealth-publish-v2.skill    ← claude.ai
 ├── README.md
 └── LICENSE
 ```
@@ -79,6 +89,7 @@ Versión auditada (protocolo de auditoría estructurada con calibración de conf
 - Nota de vigencia en el mapa temático (anti-alucinación de enlaces internos).
 - Nueva referencia de orquestación de modelos.
 - Distribución como **marketplace de plugins** con sincronización automática desde GitHub.
+- Empaquetado suelto en `/dist/` para clientes sin plugins que sí siguen la Agent Skills Spec (**Mistral**, **Perplexity**), sin reescritura del skill.
 
 Detalle completo, con identificadores de hallazgo y fix, en [CHANGELOG.md](plugins/mindandhealth-publish-v2/skills/mindandhealth-publish-v2/CHANGELOG.md).
 
