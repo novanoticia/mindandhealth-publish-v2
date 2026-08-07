@@ -8,12 +8,13 @@
 > el skill en `plugins/mindandhealth-publish-v2/skills/mindandhealth-publish-v2/SKILL.md`, así que cualquier cliente conformante lo descubre.
 >
 > **Funciona en ChatGPT.** El skill es texto: instrucciones y criterios, sin
-> ejecución local, así que se sube tal cual a *Plugins → Skills → Create →
-> Upload from your computer* y funciona igual que en Claude. Su frontmatter
+> ejecución local, así que se instala activando **Work** en el selector de ChatGPT y
+> añadiéndolo desde **Complementos**, por nombre o por la URL de este repositorio.
+> Funciona igual que en Claude. Su frontmatter
 > valida contra el conjunto cerrado de [Agent Skills](https://agentskills.io/specification),
 > que es lo que ChatGPT, claude.ai y la Skills API exigen para aceptar la subida
-> —una clave de más ahí no se ignora, falla con error duro—. Las *Skills* de
-> ChatGPT requieren plan Business, Enterprise, Healthcare o Edu.
+> —una clave de más ahí no se ignora, falla con error duro—. Están también en el
+> **plan gratuito**, con límites de uso.
 
 Skill de **acompañamiento editorial conversacional** para [Claude](https://claude.com) al servicio de las publicaciones de [mindandhealth.org](https://mindandhealth.org) (Obsidian Publish). Su premisa de diseño: **los artículos no se piden, emergen**. El skill no redacta a demanda; conversa, y solo cuando la conversación cristaliza abre un borrador iterable.
 
