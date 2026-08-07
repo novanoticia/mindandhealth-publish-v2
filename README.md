@@ -2,6 +2,19 @@
 
 *Conversational editorial companion skill for Claude — Spanish-first. Ideas crystallize through dialogue into an iterative markdown canvas; the skill never writes to the author's vault.*
 
+> **Compatible con [Agent Plugins 1.0.0](https://agent-plugins.org/specification)** — el formato portátil de empaquetado de la Agentic AI Foundation (OpenAI, Amazon,
+> Microsoft, Cursor y Vercel, con Google como *core maintainer*).
+> El paquete lleva el manifiesto portable `plugin.json` en la raíz del plugin y
+> el skill en `plugins/mindandhealth-publish-v2/skills/mindandhealth-publish-v2/SKILL.md`, así que cualquier cliente conformante lo descubre.
+>
+> **Funciona en ChatGPT.** El skill es texto: instrucciones y criterios, sin
+> ejecución local, así que se sube tal cual a *Plugins → Skills → Create →
+> Upload from your computer* y funciona igual que en Claude. Su frontmatter
+> valida contra el conjunto cerrado de [Agent Skills](https://agentskills.io/specification),
+> que es lo que ChatGPT, claude.ai y la Skills API exigen para aceptar la subida
+> —una clave de más ahí no se ignora, falla con error duro—. Las *Skills* de
+> ChatGPT requieren plan Business, Enterprise, Healthcare o Edu.
+
 Skill de **acompañamiento editorial conversacional** para [Claude](https://claude.com) al servicio de las publicaciones de [mindandhealth.org](https://mindandhealth.org) (Obsidian Publish). Su premisa de diseño: **los artículos no se piden, emergen**. El skill no redacta a demanda; conversa, y solo cuando la conversación cristaliza abre un borrador iterable.
 
 Este repositorio es, además, un **marketplace de plugins de Claude**: contiene el manifiesto `.claude-plugin/marketplace.json` que permite instalarlo directamente desde los ajustes de Claude y mantenerlo sincronizado con cada cambio publicado aquí.
