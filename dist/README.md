@@ -29,9 +29,11 @@ Contienen la carpeta `mindandhealth-publish-v2/` con `SKILL.md` en su raíz — 
 
 ## Mantenimiento
 
-La **fuente canónica** del skill es `plugins/mindandhealth-publish-v2/skills/mindandhealth-publish-v2/`. Estos paquetes son **instantáneas manuales** de esa carpeta, regeneradas en cada release relevante; si el skill cambia y no se regeneran, quedan desactualizados — no hay sincronización automática fuera del marketplace de plugins.
+La **fuente canónica** del skill es `plugins/mindandhealth-publish-v2/skills/mindandhealth-publish-v2/`. Los paquetes de esta carpeta se **regeneran solos**: el workflow [`.github/workflows/dist.yml`](../.github/workflows/dist.yml) valida el skill y reconstruye el `.zip` y el `.skill` cada vez que llega a `main` un cambio en la fuente, y los commitea si difieren. En un pull request no escribe nada: solo avisa de que quedarían desactualizados, para que se vea antes de fusionar.
 
-Por eso aquí solo viven los paquetes comprimidos y no una copia descomprimida del skill: una segunda carpeta con su propio `SKILL.md` haría que cualquier herramienta que recorra el repositorio encontrase **dos skills declarando el mismo `name`** y abortase, ya que dos skills no pueden reclamar el mismo nombre publicado. Para leer el contenido, ve a la fuente canónica; para instalarlo, descarga el paquete.
+El empaquetado es **reproducible** (marca de tiempo fija y orden alfabético dentro del zip), así que dos ejecuciones con el mismo contenido producen bytes idénticos y el workflow no genera commits de ruido. Para regenerarlos a mano: `python3 scripts/build_dist.py` (o `--check` para solo comprobar).
+
+Por eso aquí solo viven los paquetes comprimidos y no una copia descomprimida del skill: una segunda carpeta con su propio `SKILL.md` haría que cualquier herramienta que recorra el repositorio encontrase **dos skills declarando el mismo `name`** y abortase, ya que dos skills no pueden reclamar el mismo nombre publicado. El propio script lo comprueba y falla si vuelve a aparecer. Para leer el contenido, ve a la fuente canónica; para instalarlo, descarga el paquete.
 
 ---
 
