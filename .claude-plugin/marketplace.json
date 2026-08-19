@@ -10,7 +10,7 @@
       "name": "mindandhealth-publish-v2",
       "source": "./plugins/mindandhealth-publish-v2",
       "description": "Acompañamiento editorial conversacional para mindandhealth.org: conversación que cristaliza en canvas markdown iterativo (nunca escribe en el vault) y derivados bajo petición. v2 auditada.",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "category": "productivity",
       "keywords": ["editorial", "obsidian-publish", "spanish", "writing"]
     }
