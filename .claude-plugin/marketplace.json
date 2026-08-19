@@ -1,6 +1,6 @@
 {
   "name": "mindandhealth-publish-v2",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Marketplace personal de novanoticia: skill de acompañamiento editorial conversacional para mindandhealth.org (canvas iterativo en chat, derivados LinkedIn, prompt de imagen 1570:880).",
   "owner": {
     "name": "Pablo Rodríguez López (novanoticia)"

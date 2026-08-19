@@ -29,7 +29,9 @@ Contienen la carpeta `mindandhealth-publish-v2/` con `SKILL.md` en su raíz — 
 
 ## Mantenimiento
 
-Este zip es una **instantánea manual** del skill en `plugins/mindandhealth-publish-v2/skills/mindandhealth-publish-v2/`, generada en cada release relevante. Si el skill cambia y esta carpeta no se regenera, quedará desactualizada — no hay sincronización automática fuera del marketplace de plugins.
+La **fuente canónica** del skill es `plugins/mindandhealth-publish-v2/skills/mindandhealth-publish-v2/`. Estos paquetes son **instantáneas manuales** de esa carpeta, regeneradas en cada release relevante; si el skill cambia y no se regeneran, quedan desactualizados — no hay sincronización automática fuera del marketplace de plugins.
+
+Por eso aquí solo viven los paquetes comprimidos y no una copia descomprimida del skill: una segunda carpeta con su propio `SKILL.md` haría que cualquier herramienta que recorra el repositorio encontrase **dos skills declarando el mismo `name`** y abortase, ya que dos skills no pueden reclamar el mismo nombre publicado. Para leer el contenido, ve a la fuente canónica; para instalarlo, descarga el paquete.
 
 ---
 
