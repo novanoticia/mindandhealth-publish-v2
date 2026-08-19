@@ -85,6 +85,10 @@ mindandhealth-publish-v2/                 ← repositorio = marketplace de plugi
 │   ├── README.md                         ← instrucciones por cliente (Mistral/Perplexity/claude.ai)
 │   ├── mindandhealth-publish-v2.zip      ← Perplexity y estándar de la spec
 │   └── mindandhealth-publish-v2.skill    ← claude.ai
+├── scripts/
+│   └── build_dist.py                     ← valida el skill y regenera los paquetes de /dist
+├── .github/workflows/
+│   └── dist.yml                          ← lo ejecuta solo en cada cambio del skill
 ├── README.md
 └── LICENSE
 ```
@@ -104,6 +108,7 @@ Versión auditada (protocolo de auditoría estructurada con calibración de conf
 - Nueva referencia de orquestación de modelos.
 - Distribución como **marketplace de plugins** con sincronización automática desde GitHub.
 - Empaquetado suelto en `/dist/` para clientes sin plugins que sí siguen la Agent Skills Spec (**Mistral**, **Perplexity**), sin reescritura del skill.
+- Paquetes de `/dist` **regenerados automáticamente** por integración continua, con validación previa del skill (nombre único, frontmatter, longitud de `description`, coherencia de versiones).
 
 Detalle completo, con identificadores de hallazgo y fix, en [CHANGELOG.md](plugins/mindandhealth-publish-v2/skills/mindandhealth-publish-v2/CHANGELOG.md).
 

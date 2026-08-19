@@ -1,0 +1,64 @@
+name: Validar skill y regenerar /dist
+
+# Los paquetes de /dist son una instantánea del skill. Sin esto, editar el
+# skill y olvidar regenerarlos deja a quien instale desde Perplexity, Mistral
+# o claude.ai con una versión vieja sin saberlo.
+#
+#   · en un pull request  → solo valida y avisa (no escribe nada)
+#   · al llegar a main    → valida, regenera y commitea si hace falta
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'plugins/mindandhealth-publish-v2/skills/mindandhealth-publish-v2/**'
+      - '.claude-plugin/marketplace.json'
+      - 'plugins/mindandhealth-publish-v2/**/plugin.json'
+      - 'scripts/build_dist.py'
+      - '.github/workflows/dist.yml'
+  pull_request:
+    paths:
+      - 'plugins/mindandhealth-publish-v2/skills/mindandhealth-publish-v2/**'
+      - '.claude-plugin/marketplace.json'
+      - 'plugins/mindandhealth-publish-v2/**/plugin.json'
+      - 'dist/**'
+      - 'scripts/build_dist.py'
+  workflow_dispatch:          # botón «Run workflow» en la pestaña Actions
+
+permissions:
+  contents: write             # necesario para que el commit de vuelta funcione
+
+jobs:
+  dist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install --quiet pyyaml
+
+      # En un PR no se escribe nada: solo se avisa de que /dist quedaría
+      # desactualizado, para que se vea antes de fusionar.
+      - name: Validar (pull request)
+        if: github.event_name == 'pull_request'
+        run: python3 scripts/build_dist.py --check
+
+      - name: Regenerar los paquetes
+        if: github.event_name != 'pull_request'
+        run: python3 scripts/build_dist.py
+
+      - name: Commitear si han cambiado
+        if: github.event_name != 'pull_request'
+        run: |
+          if [ -z "$(git status --porcelain dist)" ]; then
+            echo "/dist ya estaba al día; no hay nada que commitear."
+            exit 0
+          fi
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add dist
+          git commit -m 'Regenera los paquetes de /dist desde la fuente del skill'
+          git push

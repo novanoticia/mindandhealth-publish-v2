@@ -8,6 +8,8 @@ Sin cambios de contenido ni de comportamiento del skill.
 - **`metadata.version` normalizada de `2.0` a `2.0.1`**, formato SemVer completo y coherente con los tres manifiestos (`marketplace.json` y los dos `plugin.json`), que pasan también a `2.0.1`.
 - Paquetes `.zip` y `.skill` regenerados desde la fuente canónica.
 - `dist/README.md`: sección de mantenimiento reescrita, declarando la fuente canónica y por qué aquí no vive una copia descomprimida.
+- **Integración continua** (`scripts/build_dist.py` + `.github/workflows/dist.yml`): los paquetes de `/dist` se regeneran solos en cada cambio del skill que llegue a `main`, con validación previa que falla si reaparece un segundo `SKILL.md`, si el `name` no coincide con la carpeta, si el frontmatter lleva claves no permitidas, si la `description` supera los 1024 bytes UTF-8 o si las versiones del skill y de los tres manifiestos discrepan. En pull request solo avisa, no escribe.
+- Corregida la versión del plugin dentro de `marketplace.json`, que se había quedado en `2.0.0` (la detectó la validación nueva).
 
 ## 2.0 (2026-07-24) — duplicado auditado y mejorado del plugin original (2026-04-16)
 
