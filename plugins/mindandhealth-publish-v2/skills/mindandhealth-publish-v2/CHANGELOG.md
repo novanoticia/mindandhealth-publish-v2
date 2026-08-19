@@ -1,5 +1,14 @@
 # Changelog — mindandhealth-publish-v2
 
+## 2.0.1 (2026-08-19) — higiene de empaquetado
+
+Sin cambios de contenido ni de comportamiento del skill.
+
+- **Eliminada la copia descomprimida `dist/mindandhealth-publish-v2/`.** Era idéntica byte a byte a la fuente en `plugins/…`, pero hacía que el repositorio declarase **dos skills con el mismo `name`**: cualquier conversor, empaquetador o validador que recorra el árbol completo aborta ante esa colisión. En `dist/` quedan solo los paquetes (`.zip` y `.skill`), que ninguna herramienta interpreta como skill suelta. El árbol documentado en el README principal ya describía `dist/` sin esa carpeta: era un residuo no documentado.
+- **`metadata.version` normalizada de `2.0` a `2.0.1`**, formato SemVer completo y coherente con los tres manifiestos (`marketplace.json` y los dos `plugin.json`), que pasan también a `2.0.1`.
+- Paquetes `.zip` y `.skill` regenerados desde la fuente canónica.
+- `dist/README.md`: sección de mantenimiento reescrita, declarando la fuente canónica y por qué aquí no vive una copia descomprimida.
+
 ## 2.0 (2026-07-24) — duplicado auditado y mejorado del plugin original (2026-04-16)
 
 Base: versión plugin `mindandhealth-publish` (abr-2026), auditada con `github-plugin-analyzer-ia-v4` e incorporando las mejoras que la rama user (jun-2026) ya había introducido, más correcciones nuevas.

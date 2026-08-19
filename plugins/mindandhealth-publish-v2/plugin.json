@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "mindandhealth-publish-v2",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Acompañamiento editorial conversacional para mindandhealth.org: canvas iterativo en el chat, derivados LinkedIn y prompt de imagen 1570:880. Nunca escribe en el vault.",
   "author": {
     "name": "Pablo Rodríguez López"

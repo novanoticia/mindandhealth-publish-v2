@@ -2,7 +2,7 @@
 name: mindandhealth-publish-v2
 description: Acompañamiento editorial conversacional para las publicaciones de Pablo en mindandhealth.org (Obsidian Publish). Conversación exploratoria que cristaliza en un canvas markdown iterativo en el chat (nunca escribe en el vault) y derivados bajo petición (newsletter LinkedIn, post de feed, prompt de imagen 1570:880). Admite delegación opcional a un subagente frontera en entornos con orquestación (Claude Code / Cowork). Actívalo con /mindandhealth-publish-v2 o cuando Pablo diga "publiquemos sobre X", "pensemos sobre X", "me ronda esta idea", "saca canvas", "haz la newsletter", "dame el prompt de imagen", o pida crear, refinar o transformar contenido para su web.
 metadata:
-  version: '2.0'
+  version: '2.0.1'
 ---
 
 # Mindandhealth Publishing (v2)
