@@ -1,7 +1,7 @@
 # mindandhealth-publish-v2
 
 [![Versión en main](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fnovanoticia%2Fmindandhealth-publish-v2%2Fmain%2Fplugins%2Fmindandhealth-publish-v2%2Fplugin.json&query=%24.version&prefix=v&label=Versi%C3%B3n%20en%20main&color=blue)](https://github.com/novanoticia/mindandhealth-publish-v2/blob/main/plugins/mindandhealth-publish-v2/plugin.json)
-**Última versión publicada:** Sin releases publicadas · [Ver publicaciones](https://github.com/novanoticia/mindandhealth-publish-v2/releases)
+**Última versión publicada:** [v2.0.1](https://github.com/novanoticia/mindandhealth-publish-v2/releases/tag/v2.0.1) · [Ver publicaciones](https://github.com/novanoticia/mindandhealth-publish-v2/releases)
 
 *Conversational editorial companion skill for Claude — Spanish-first. Ideas crystallize through dialogue into an iterative markdown canvas; the skill never writes to the author's vault.*
 
