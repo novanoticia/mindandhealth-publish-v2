@@ -1,5 +1,7 @@
 # mindandhealth-publish-v2
 
+[![Versión actual en main](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fnovanoticia%2Fmindandhealth-publish-v2%2Fmain%2Fplugins%2Fmindandhealth-publish-v2%2Fplugin.json&query=%24.version&prefix=v&label=Versi%C3%B3n%20actual%20en%20main&color=blue)](https://github.com/novanoticia/mindandhealth-publish-v2/blob/main/plugins/mindandhealth-publish-v2/plugin.json)
+
 *Conversational editorial companion skill for Claude — Spanish-first. Ideas crystallize through dialogue into an iterative markdown canvas; the skill never writes to the author's vault.*
 
 > **Compatible con [Agent Plugins 1.0.0](https://agent-plugins.org/specification)** — el formato portátil de empaquetado de la Agentic AI Foundation (OpenAI, Amazon,
