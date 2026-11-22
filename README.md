@@ -5,23 +5,18 @@
 
 *Conversational editorial companion skill for Claude — Spanish-first. Ideas crystallize through dialogue into an iterative markdown canvas; the skill never writes to the author's vault.*
 
-> **Compatible con [Agent Plugins 1.0.0](https://agent-plugins.org/specification)** — el formato portátil de empaquetado de la Agentic AI Foundation (OpenAI, Amazon,
-> Microsoft, Cursor y Vercel, con Google como *core maintainer*).
-> El paquete lleva el manifiesto portable `plugin.json` en la raíz del plugin y
-> el skill en `plugins/mindandhealth-publish-v2/skills/mindandhealth-publish-v2/SKILL.md`, así que cualquier cliente conformante lo descubre.
->
-> **Funciona en ChatGPT.** El skill es texto: instrucciones y criterios, sin
-> ejecución local, así que se instala activando **Work** en el selector de ChatGPT y
-> añadiéndolo desde **Complementos**, por nombre o por la URL de este repositorio.
-> Funciona igual que en Claude. Su frontmatter
-> valida contra el conjunto cerrado de [Agent Skills](https://agentskills.io/specification),
-> que es lo que ChatGPT, claude.ai y la Skills API exigen para aceptar la subida
-> —una clave de más ahí no se ignora, falla con error duro—. Están también en el
-> **plan gratuito**, con límites de uso.
-
 Skill de **acompañamiento editorial conversacional** para [Claude](https://claude.com) al servicio de las publicaciones de [mindandhealth.org](https://mindandhealth.org) (Obsidian Publish). Su premisa de diseño: **los artículos no se piden, emergen**. El skill no redacta a demanda; conversa, y solo cuando la conversación cristaliza abre un borrador iterable.
 
 Este repositorio es, además, un **marketplace de plugins de Claude**: contiene el manifiesto `.claude-plugin/marketplace.json` que permite instalarlo directamente desde los ajustes de Claude y mantenerlo sincronizado con cada cambio publicado aquí.
+
+**En esta página:**
+[En 3 pasos](#en-3-pasos) · [Cómo funciona](#cómo-funciona) · [Qué no hace](#qué-no-hace-por-diseño) · [Instalación](#instalación) · [Uso](#uso) · [Estructura](#estructura) · [Novedades de la v2](#novedades-de-la-v2)
+
+## En 3 pasos
+
+1. **Instálalo** en Claude: **Ajustes → Plugins → Añadir** → `novanoticia/mindandhealth-publish-v2` → **Sincronizar**, e instala `mindandhealth-publish-v2`. Otras vías (Claude Code, ChatGPT, claude.ai, Mistral, Perplexity) en [Instalación](#instalación).
+2. **Empieza a conversar**, sin pedir un artículo: «me ronda esta idea…», «pensemos sobre X».
+3. **Cuando la idea tenga forma**, pide «saca canvas con lo que llevamos», itera sobre el borrador y copia el resultado a tu vault. Después puedes pedir derivados: newsletter, post o prompt de imagen.
 
 ## Cómo funciona
 
@@ -42,6 +37,22 @@ Este repositorio es, además, un **marketplace de plugins de Claude**: contiene 
 ## Instalación
 
 **Como plugin, desde este marketplace (recomendado).** En la app de Claude: **Ajustes → Plugins → Añadir** (añadir marketplace) → escribe `novanoticia/mindandhealth-publish-v2` → **Sincronizar**, e instala el plugin `mindandhealth-publish-v2` desde la lista. Con **"Sincronizar automáticamente"** activado, cada cambio publicado en este repositorio se propaga solo a tu Claude.
+
+**En ChatGPT y otros clientes compatibles con Agent Plugins.**
+
+> **Compatible con [Agent Plugins 1.0.0](https://agent-plugins.org/specification)** — el formato portátil de empaquetado de la Agentic AI Foundation (OpenAI, Amazon,
+> Microsoft, Cursor y Vercel, con Google como *core maintainer*).
+> El paquete lleva el manifiesto portable `plugin.json` en la raíz del plugin y
+> el skill en `plugins/mindandhealth-publish-v2/skills/mindandhealth-publish-v2/SKILL.md`, así que cualquier cliente conformante lo descubre.
+>
+> **Funciona en ChatGPT.** El skill es texto: instrucciones y criterios, sin
+> ejecución local, así que se instala activando **Work** en el selector de ChatGPT y
+> añadiéndolo desde **Complementos**, por nombre o por la URL de este repositorio.
+> Funciona igual que en Claude. Su frontmatter
+> valida contra el conjunto cerrado de [Agent Skills](https://agentskills.io/specification),
+> que es lo que ChatGPT, claude.ai y la Skills API exigen para aceptar la subida
+> —una clave de más ahí no se ignora, falla con error duro—. Están también en el
+> **plan gratuito**, con límites de uso.
 
 **Desde la línea de comandos de Claude Code:**
 
